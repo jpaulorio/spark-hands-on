@@ -18,17 +18,7 @@ object Athletes {
         val conf = new SparkConf().setAppName(appName).setMaster(master)
         val sparkContext = new SparkContext(conf)
 
-        val file = sparkContext.textFile(inputFile)
-
-        val playerAndSport = file.map(x => x.split(",")).map(x => (x(0) + "-" + x(1), x(3)))
-
-        val reduced = playerAndSport.reduceByKey((x, y) => x + "," + y)
-
-        val playerAndSportArray = reduced.map(x => (x._1, x._2.split(",").toSet))
-
-        val filtered = playerAndSportArray.filter(x => x._2.size > 1)
-
-        val result = filtered.map(x => (x._1, x._2.size))
+        
 
         result.saveAsTextFile(outputFile)
 
