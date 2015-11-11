@@ -7,6 +7,7 @@ lazy val commonSettings = Seq(
 
 assemblyJarName in assembly := "word-count-spark.jar"
 assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeScala = false)
+mainClass in (Compile, packageBin) := Some("KafkaWordProducer")
 
 libraryDependencies ++= Seq(
     "com.github.scala-incubator.io" %% "scala-io-file" % "0.4.2",
