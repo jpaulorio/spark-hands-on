@@ -14,5 +14,6 @@ libraryDependencies ++= Seq(
     "org.apache.hadoop" % "hadoop-client" % "2.6.1" % "provided",
     "org.apache.spark" % "spark-streaming_2.10" % "1.5.1" % "provided",
     "org.apache.spark" % "spark-sql_2.10" % "1.5.1" % "provided",
-    "org.apache.spark" % "spark-mllib_2.10" % "1.5.1" % "provided"
+    "org.apache.spark" % "spark-mllib_2.10" % "1.5.1" % "provided",
+    "org.apache.spark" % "spark-streaming-kafka_2.10" % "1.5.1" exclude("org.spark-project.spark", "unused")
 )
